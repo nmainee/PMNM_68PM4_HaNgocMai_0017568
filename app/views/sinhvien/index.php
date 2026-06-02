@@ -33,8 +33,8 @@
         <?php foreach ($sinhvien as $sv) { ?> 
             <tr>
                 <td> <?php echo $sv['id']; ?> </td>
-                <td> <?php echo $sv['sinhvien']; ?> </td>
-                <td> <?php echo $sv['giotinh']; ?> </td>
+                <td> <?php echo $sv['hoten']; ?> </td>
+                <td> <?php echo $sv['gioitinh']; ?> </td>
                 <td> <?php echo $sv['mssv']; ?> </td>
             </tr>
         <?php } ?>
