@@ -40,37 +40,35 @@ class sinhvien extends Controller {
         } else {
             echo "Thêm mới sinh viên thất bại";
         }
-    }
-
-    public function edit($id) {
-        $sinhvienModel = $this->model('sinhvienModel');
-        $sinhvien = $sinhvienModel->getById($id);
-        $this->view("layout/masterlayout", 
-        [
-            "viewname" => "sinhvien/edit",
-            "sinhvien" => $sinhvien, 
-            "title" => "Sửa thông tin sinh viên"
-        ]);
-    }
-
-    public function update($id) {
-        $hoten = $_POST['hoten'];
-        $gioitinh = $_POST['gioitinh'];
-        $mssv = $_POST['mssv'];
-        $sinhvienModel = $this->model('sinhvienModel');
-        $result = $sinhvienModel->update($id, $hoten, $gioitinh, $mssv);
-        if($result) {
-            header("Location: /QLSV/public/sinhvien/index");
-        } else {
-            echo "Cập nhật sinh viên thất bại";
+    
+        public function edit($id) {
+            $sinhvienModel = $this->model('sinhvienModel');
+            $sinhvien = $sinhvienModel->getById($id);
+            $this->view("layout/masterlayout", 
+            [
+                "viewname" => "sinhvien/edit",
+                "sinhvien" => $sinhvien, 
+                "title" => "Sửa thông tin sinh viên"
+            ]);
         }
-    }
-
+    
+        public function update($id) {
+            $hoten = $_POST['hoten'];
+            $gioitinh = $_POST['gioitinh'];
+            $mssv = $_POST['mssv'];
+            $sinhvienModel = $this->model('sinhvienModel');
+            $result = $sinhvienModel->update($id, $hoten, $gioitinh, $mssv);
+            if($result) {
+                header("Location: /QLSINHVIEN/public/sinhvien/index");
+            } else {
+                echo "Cập nhật sinh viên thất bại";
+            }
+        }
     public function delete($id) {
         $sinhvienModel = $this->model('sinhvienModel');
         $result = $sinhvienModel->delete($id);
         if($result) {
-            header("Location: /QLSV/public/sinhvien/index");
+            header("Location: /QLS/public/sinhvien/index");
         } else {
             echo "Xóa sinh viên thất bại";
         }

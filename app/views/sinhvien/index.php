@@ -42,7 +42,7 @@
                     <td> <?php echo $sv['giotinh']; ?> </td>
                     <td> <?php echo $sv['mssv']; ?> </td>
                     <td>
-                        <a href="/QLSV/public/sinhvien/edit/<?php echo $sv['id']; ?>" class="btn btn-sm btn-warning">Sửa</a>
+                        <a href="/QLSVien/public/sinhvien/edit/<?php echo $sv['id']; ?>" class="btn btn-sm btn-warning">Sửa</a>
                     </td>
                     <td>
                         <a href="/QLSV/public/sinhvien/delete/<?php echo $sv['id']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Bạn chắc chắn muốn xóa?')">Xóa</a>
