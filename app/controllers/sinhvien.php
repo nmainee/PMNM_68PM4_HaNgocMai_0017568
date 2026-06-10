@@ -64,14 +64,12 @@ class sinhvien extends Controller {
                 echo "Cập nhật sinh viên thất bại";
             }
         }
-    public function delete($id) {
-        $sinhvienModel = $this->model('sinhvienModel');
-        $result = $sinhvienModel->delete($id);
-        if($result) {
-            header("Location: /QLS/public/sinhvien/index");
-        } else {
-            echo "Xóa sinh viên thất bại";
+        public function delete($id) {
+            $sinhvienModel = $this->model('sinhvienModel');
+            $result = $sinhvienModel->delete($id);
+            if($result) {
+                header("Location: /QLSV/public/sinhvien/index");
+            } else {
+                echo "Xóa sinh viên thất bại";
+            }
         }
-    }
-}
-?>
