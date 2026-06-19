@@ -112,28 +112,53 @@
 <body>
 
     <div class="container">
+    
+    <style>
+    .form-container {
+        width: 100%;
+        max-width: 550px;
+        margin: 30px auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+</style>
+
+<div class="form-container">
 
         <h1>Sửa Thông Tin Sinh Viên</h1>
 
         <?php if (!empty($sinhvien)): ?>
 
-            <form action="/QLSINHVIEN/public/sinhvien/update/<?php echo $sinhvien['id']; ?>" method="POST">
+            <form action="/QLSV/public/sinhvien/update/<?php echo $sinhvien['id']; ?>" method="POST">
+            <input type="hidden"
+                    name="id"
+                    value="<?php echo $sinhvien['id']; ?>">
 
                 <input type="hidden" name="id" value="<?php echo $sinhvien['id']; ?>">
+                <div class="mb-3">
+                <label for="hoten" class="form-label fw-bold">Họ tên</label>
 
                 <div class="form-group">
                     <label for="hoten">Họ tên sinh viên</label>
                     <input
                         type="text"
+                         class="form-control"
                         id="hoten"
                         name="hoten"
                         value="<?php echo htmlspecialchars($sinhvien['sinhvien']); ?>"
                         required>
+                        required pattern=".*\S+.*" title="Họ tên không được để trống">
                 </div>
 
                 <div class="form-group">
                     <label for="gioitinh">Giới tính</label>
                     <select id="gioitinh" name="gioitinh" required>
+                    <div class="mb-3">
+                    <label for="gioitinh" class="form-label fw-bold">Giới tính</label>
+
+                    <select class="form-select" id="gioitinh" name="gioitinh" required>
                         <option value="Nam"
                             <?php echo ($sinhvien['giotinh'] === 'Nam') ? 'selected' : ''; ?>>
                             Nam
